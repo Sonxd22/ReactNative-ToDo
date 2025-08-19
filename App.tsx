@@ -5,7 +5,13 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 export default function App() {
 
     const [name, setName] = useState<string>('son')
- 
+     const [todoList, setTodoList] = useState ([
+        {id:1 , title : 'cr11'},
+        {id:2 , title : 'sdas'},
+        {id:3 , title : 'aaddas'},
+        {id:4 , title : 'addddddads'},
+        {id:5 , title : 'aaddaadads'}
+     ])
   return (
     <View style={styles.container}>
       <TextInput
@@ -22,20 +28,36 @@ export default function App() {
         padding : 10
         
       }}/>
-      <Button title='add new'/>
+      <Button
+         onPress={()=>{
+          alert('tap me')
+         }}
+         title='add new'/>
+      <View style={{
+          marginTop:10
+        }}>
+        {todoList.map(todo => {
+          return (
+            <Text style={styles.todo}>{todo.title}</Text>
+          )
+        })}
+      </View>
       <Text style={styles.text}>{name}</Text>
       <Text style={styles.text} >Open up App.tsx to start</Text>
-      <Text style={styles.text1} >working on your app!</Text>
+      <Text style={styles.text} >working on your app!</Text>
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  text1:{
+  todo:{
+    backgroundColor:"pink",
     fontSize : 30,
-    color : "green",
+    marginBottom : 10,
+    padding : 10
   },
+ 
   text:{
       fontSize : 30,
       color : "red"
@@ -45,5 +67,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:50
   },
 });
