@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
@@ -10,7 +10,13 @@ export default function App() {
         {id:2 , title : 'sdas'},
         {id:3 , title : 'aaddas'},
         {id:4 , title : 'addddddads'},
-        {id:5 , title : 'aaddaadads'}
+        {id:5 , title : 'aaddaadads'},
+        {id:6 , title : 'aaddaadads'},
+        {id:7 , title : 'aaddaadads'},
+        {id:8 , title : 'aaddaadads'},
+        {id:9 , title : 'aaddaadads'},
+        {id:10 , title : 'aaddaadads'},
+        {id:11 , title : 'aaddaadads'}
      ])
   return (
     <View style={styles.container}>
@@ -33,18 +39,18 @@ export default function App() {
           alert('tap me')
          }}
          title='add new'/>
-      <View style={{
+      <ScrollView style={{
+          borderColor:"red",
+          borderWidth :1,
           marginTop:10
         }}>
         {todoList.map(todo => {
           return (
-            <Text style={styles.todo}>{todo.title}</Text>
+            <Text key={todo.id} style={styles.todo}>{todo.title}</Text>
           )
         })}
-      </View>
+      </ScrollView>
       <Text style={styles.text}>{name}</Text>
-      <Text style={styles.text} >Open up App.tsx to start</Text>
-      <Text style={styles.text} >working on your app!</Text>
       <StatusBar style="auto" />
     </View>
   );
