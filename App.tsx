@@ -1,19 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
-    const [age, setAge] = useState<Number>(22)
-    const [name, setName] = useState<String>('son')
-    const test = false
-    const [person, setPerson] = useState([{
-      name : "son",
-      age : 25
-     }]);
+
+    const [name, setName] = useState<string>('son')
+ 
   return (
     <View style={styles.container}>
+      <TextInput
+       onChangeText={value => setName(value)}
+       //value = {name}
+       autoCapitalize='none'
+       //maxLength={2}
+       autoCorrect={false}
+       multiline
+       keyboardType='numeric'
+       style = {{
+        borderColor : "violet",
+        borderWidth : 1,
+        padding : 10
+        
+      }}/>
+      <Button title='add new'/>
       <Text style={styles.text}>{name}</Text>
-      <Text style={styles.text}>{JSON.stringify(person)}</Text>
       <Text style={styles.text} >Open up App.tsx to start</Text>
       <Text style={styles.text1} >working on your app!</Text>
       <StatusBar style="auto" />
