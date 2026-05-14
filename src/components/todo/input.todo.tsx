@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Alert, Button,StyleSheet, TextInput, View } from "react-native";
+import MineButton from "../button/mine.button";
 interface Iprops {
     addTodo : (v:string) => void;
 }
@@ -39,7 +40,7 @@ const InputTodo = (props : Iprops) => {
     
     return (
         <>
-        <View/>
+        <View style={{marginBottom:20}}>
               <TextInput
                onChangeText={value => setName(value)}
                //value = {name}
@@ -48,12 +49,15 @@ const InputTodo = (props : Iprops) => {
                autoCorrect={false}
                multiline
                keyboardType='numeric'
-               style = {styles.todoInput}/>
-              <Button
-                 onPress={handleAddNewTodo}
-                 title='add new'
-                 />
-              <View/>
+               style = {styles.todoInput}
+               />   
+             <MineButton
+               title="add new"
+               onPress={handleAddNewTodo}
+              ></MineButton>
+                 
+              </View>
+             
               </>
     )
 }
